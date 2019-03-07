@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Question;
 use Illuminate\Http\Request;
+use \DB;
 
 class QuestionsController extends Controller
 {
@@ -14,7 +15,10 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        $questions = Question::latest()->paginate(4);
+
+        // Eager loading --- It will do less query in view side
+        // user equals to relationship method name in Question model
+        $questions = Question::with("user")->latest()->paginate(4);
 
         return view('questions.index')->with("questions", $questions);
     }
