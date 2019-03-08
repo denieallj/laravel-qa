@@ -32,4 +32,21 @@ class Question extends Model
     {
         return $this->created_at->diffForHumans();
     }
+
+    public function getAnswerStatusAttribute() {
+
+        $status = "";
+
+        if ($this->answers <= 0) {
+            $status = "unanswered";
+        } else {
+            if (is_null($this->best_answer_id)) {
+                $status = "answered";
+            } else {
+                $status = "answer-accepted";
+            }
+        }
+
+        return $status;
+    }
 }
