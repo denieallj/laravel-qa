@@ -48,3 +48,17 @@
     }
   }
 }
+
+.card-header {
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+}

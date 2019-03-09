@@ -5,9 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">All Questions</div>
+                <div class="card-header">
+                    <h2>All Questions</h2>
+                    <a href="{{ route('questions.create') }}" class="btn btn-outline-secondary">Ask Question</a>
+                </div>
 
                 <div class="card-body">
+                    @include('layouts._messages')
                     
                     @foreach ($questions as $question)
 
