@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -20,3 +19,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+try {
+    var editor = new Jodit('#editor', {
+        "buttons": "source,|,bold,strikethrough,underline,italic,|,superscript,subscript,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall,print,about"
+    });
+} catch(e) {}

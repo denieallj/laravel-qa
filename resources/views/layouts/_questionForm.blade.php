@@ -11,7 +11,7 @@
 
 <div class="form-group">
     <label for="question-body">Explain your question</label>
-    <textarea class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" name="body" id="question-body" rows="10">{{ old('body', $body) }}</textarea>
+    <textarea id="editor" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" name="body" id="question-body" rows="10">{{ old('body', $body) }}</textarea>
 
     @if ($errors->has('body')) 
         <small class="invalid-feedback text-danger">{{ $errors->first('body') }}</small>

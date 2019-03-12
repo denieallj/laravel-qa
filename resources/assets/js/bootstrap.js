@@ -1,3 +1,6 @@
+// import jodit text editor
+let jodit = require('jodit');
+window.Jodit = jodit.Jodit;
 
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
