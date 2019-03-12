@@ -18,7 +18,7 @@ class QuestionsController extends Controller
     {
 
         // Eager loading --- It will do less query in view side
-        // user equals to relationship method name in Question model
+        // "user" equals to relationship method name in Question model
         $questions = Question::with("user")->latest()->paginate(4);
 
         return view('questions.index')->with("questions", $questions);
@@ -59,7 +59,9 @@ class QuestionsController extends Controller
      */
     public function show(Question $question)
     {
-        //
+        $question->increment('views'); // add one to view column in question table then save it
+
+        return view('questions.show')->with('question', $question);
     }
 
     /**
@@ -70,7 +72,7 @@ class QuestionsController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+        return view("questions.edit")->with('question', $question);
     }
 
     /**
@@ -80,9 +82,11 @@ class QuestionsController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Question $question)
+    public function update(AskQuestionRequest $request, Question $question)
     {
-        //
+        $question->update($request->only('title', 'body'));
+
+        return redirect()->route('questions.index')->with('success', "Your question is updated");
     }
 
     /**
@@ -93,6 +97,8 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        $question->delete();
+
+        return redirect()->route('questions.index')->with('success', "Your question is deleted");
     }
 }

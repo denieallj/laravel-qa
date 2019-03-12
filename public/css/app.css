@@ -11703,3 +11703,23 @@ a.text-dark:focus {
   padding: 0;
 }
 
+.title_and_btn_grid {
+  display: grid;
+  grid-template-areas: 'title title title auto btn';
+}
+
+.title_and_btn_grid .title {
+  grid-area: title;
+  margin: 0;
+  padding: 0;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.title_and_btn_grid .button {
+  grid-area: btn;
+  justify-self: end;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+

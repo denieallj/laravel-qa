@@ -25,7 +25,7 @@ class Question extends Model
     // use: User::first()->url
     public function getUrlAttribute()
     {
-        return route("questions.show", $this->id);
+        return route("questions.show", $this->slug);
     }
 
     public function getCreatedDateAttribute()
@@ -48,5 +48,11 @@ class Question extends Model
         }
 
         return $status;
+    }
+
+    public function getBodyHtmlAttribute() {
+
+        return \Parsedown::instance()->text($this->body);
+
     }
 }

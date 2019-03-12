@@ -62,3 +62,32 @@
     padding: 0;
   }
 }
+
+.title_and_btn_grid {
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
+  // justify-content: space-between;
+  // flex-wrap: wrap;
+
+  // h3 {
+  //   margin: 0;
+  //   padding: 0;
+  // }
+  
+  display: grid;
+  grid-template-areas: 'title title title auto btn';
+
+  .title {
+    grid-area: title;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+  }
+
+  .button {
+    grid-area: btn;
+    justify-self: end;
+    align-self: center;
+  }
+}
