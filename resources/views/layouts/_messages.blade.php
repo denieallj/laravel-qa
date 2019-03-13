@@ -1,5 +1,5 @@
 @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div id="message-popup" class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Done!</strong> {{ session('success') }}
 
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
