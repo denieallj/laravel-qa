@@ -33,12 +33,15 @@
                             <div class="media-body">
                                 <div class="title_and_btn_grid">
                                     <div class="title">
-                                        <h3><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
+                                    <h3><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
                                     </div>
 
                                     <div class="button">
-                                        <a href="{{ route('questions.edit', $question->slug) }}" class="btn btn-outline-info btn-sm">Edit</a>
-                                        <button data-toggle="modal" data-target="#confirmModal" class="btn btn-outline-danger btn-sm">Delete</button>
+                                        @if(Auth::user()->can('update-question', $question) && Auth::user()->can('delete-question', $question))
+                                            <a href="{{ route('questions.edit', $question->slug) }}" class="btn btn-outline-info btn-sm">Edit</a>
+                                            <button data-toggle="modal" data-target="#confirmModal" class="btn btn-outline-danger btn-sm">Delete</button>
+                                        @endif
+
                                         @include('layouts._confirmModal', ["route" => route('questions.destroy', $question->id), 'message' => "Are you sure about deleting this question?"])
                                     </div>
                                 </div>

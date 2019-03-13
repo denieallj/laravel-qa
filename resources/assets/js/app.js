@@ -25,3 +25,7 @@ try {
         "buttons": "source,|,bold,strikethrough,underline,italic,|,superscript,subscript,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,link,|,align,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall,print,about"
     });
 } catch(e) {}
+
+// Close message after 5 second
+var custom = require('./custom');
+window.onload = custom.closeMessagein5s;

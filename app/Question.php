@@ -55,10 +55,4 @@ class Question extends Model
         return \Parsedown::instance()->text($this->body);
 
     }
-
-    public function getBodyForIndexAttribute() {
-
-        return \Parsedown::instance()->setMarkupEscaped(true)->text($this->body);
-
-    }
 }
