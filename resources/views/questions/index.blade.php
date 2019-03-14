@@ -37,9 +37,14 @@
                                     </div>
 
                                     <div class="button">
-                                        <a href="{{ route('questions.edit', $question->slug) }}" class="btn btn-outline-info btn-sm">Edit</a>
-                                        <button data-toggle="modal" data-target="#confirmModal" class="btn btn-outline-danger btn-sm">Delete</button>
-                                        @include('layouts._confirmModal', ["route" => route('questions.destroy', $question->id), 'message' => "Are you sure about deleting this question?"])
+                                        @can ('update', $question)
+                                            <a href="{{ route('questions.edit', $question->slug) }}" class="btn btn-outline-info btn-sm">Edit</a>
+                                        @endcan
+
+                                        @can ('delete', $question)
+                                            <button data-toggle="modal" data-target="#confirmModal" class="btn btn-outline-danger btn-sm">Delete</button>
+                                            @include('layouts._confirmModal', ["route" => route('questions.destroy', $question->id), 'message' => "Are you sure about deleting this question?"])
+                                        @endcan
                                     </div>
                                 </div>
                                 
