@@ -4,12 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+// $question->answers will first look in table for column name if not it finds it in model relationship method
 class Question extends Model
 {
     protected $fillable = ['title', 'body'];
 
     public function user() {
         return $this->belongsTo(User::class);
+    }
+
+    public function answers() {
+        return $this->hasMany(Answer::class);
     }
 
     // Mutators
@@ -37,7 +42,7 @@ class Question extends Model
 
         $status = "";
 
-        if ($this->answers <= 0) {
+        if ($this->answers_count <= 0) {
             $status = "unanswered";
         } else {
             if (is_null($this->best_answer_id)) {
