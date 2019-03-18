@@ -66,4 +66,6 @@ class Question extends Model
         return \Parsedown::instance()->setMarkupEscaped(true)->text($this->body);
 
     }
+
+
 }

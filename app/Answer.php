@@ -20,6 +20,10 @@ class Answer extends Model
 
     }
 
+    public function getCreatedDateAttribute() {
+        return $this->created_at->diffForHumans();
+    }
+
     public static function boot() {
         parent::boot();
 
