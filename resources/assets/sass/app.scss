@@ -11,6 +11,9 @@
 // Jodit Editor
 @import '~jodit/build/jodit.min';
 
+// Font Awesome
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -80,6 +83,7 @@
   
   display: grid;
   grid-template-areas: 'title title title auto btn';
+  padding: 20px 20px 0 20px;
 
   .title {
     grid-area: title;
@@ -92,5 +96,78 @@
     grid-area: btn;
     justify-self: end;
     align-self: center;
+    margin: 0;
+  }
+}
+
+.best_answer_background {
+  background-color: #DDFEE4;
+}
+
+.vote-controls {
+  min-width: 60px;
+  margin-right: 30px;
+  text-align: center;
+
+  span, a {
+    display: block;
+  }
+
+  span {
+    &.votes-count {
+      font-size: 21px
+    }
+
+    &.favourites-count {
+      font-size: 12px
+    }
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  .off {
+    color: lightgrey;
+  }
+
+  .off:hover {
+    color: lightskyblue;
+  }
+
+  .on {
+    color: lightskyblue;
+  }
+
+  .on_best_answer {
+    color: $green;
+  }
+
+  .off_best_answer {
+    color: lightgrey;
+  }
+
+  .off_best_answer:hover {
+    color: $green;
+  }
+}
+
+.answer_vote_control {
+  display: grid;
+  grid-template-areas: 'control control title title title';
+  grid-gap: 10px;
+  padding: 30px;
+
+  .vote-controls {
+    grid-area: control;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+  }
+
+  .answer_body {
+    grid-area: title;
+    align-self: center;
+    margin: 0;
   }
 }
