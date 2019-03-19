@@ -64,7 +64,7 @@ class QuestionsController extends Controller
      */
     public function show(Question $question)
     {
-        $question->increment('views'); // add one to view column in question table then save it
+        $question->increment('views_count'); // add one to view column in question table then save it
 
         return view('questions.show')->with('question', $question);
     }

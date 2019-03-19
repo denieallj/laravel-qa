@@ -28,12 +28,12 @@ class DatabaseSeeder extends Seeder
             );
         });
 
-        // For each row in question table, choose
-        App\Question::all()->each(function($question) {
-            $answers = $question->answers->all();
-            $random_index = rand(0, count($answers) - 1);
-            $question->best_answer_id = $answers[$random_index]->id;
-            $question->save();
-        });
+        // Generate best answer
+//        App\Question::all()->each(function($question) {
+//            $answers = $question->answers->all();
+//            $random_index = rand(0, count($answers) - 1);
+//            $question->best_answer_id = $answers[$random_index]->id;
+//            $question->save();
+//        });
     }
 }

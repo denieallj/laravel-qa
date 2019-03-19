@@ -15,23 +15,23 @@
                     
                     @foreach ($questions as $question)
 
-                        <div class="media">
+                        <div class="media question_index_flex">
                             <div class="d-flex flex-column counters">
                                 <div class="vote">
-                                    <strong>{{ $question->votes }}</strong> {{ str_plural('vote', $question->votes) }}
+                                    <strong>{{ $question->votes_count }}</strong> {{ str_plural('vote', $question->votes_count) }}
                                 </div>
 
-                            <div class="status {{ $question->answer_status }}">
+                                <div class="status {{ $question->answer_status }}">
                                     <strong>{{ $question->answers_count }}</strong> {{ str_plural('answer', $question->answers_count) }}
                                 </div>
 
                                 <div class="view">
-                                    {{ $question->views . " " . str_plural('view', $question->views) }}
+                                    {{ $question->views_count . " " . str_plural('view', $question->views_count) }}
                                 </div>
                             </div>
 
                             <div class="media-body">
-                                <div class="title_and_btn_grid">
+                                <div class="question_title_and_btn_grid">
                                     <div class="title">
                                         <h3><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
                                     </div>
@@ -50,7 +50,7 @@
                                 
                                 <p class="lead">
                                     Asked by <a href="{{ $question->user->url }}">{{ $question->user->name}}</a>
-                                <small class="text-muted">{{ $question->created_date }}</small>
+                                    <small class="text-muted">{{ $question->created_date }}</small>
                                 </p>
 
                                 {!! str_limit($question->body_html, 250) !!}
