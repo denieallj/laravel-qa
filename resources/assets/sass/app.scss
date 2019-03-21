@@ -196,20 +196,34 @@
 
 .answer_vote_control {
   display: grid;
-  grid-template-areas: 'control control title title title';
-  grid-gap: 10px;
-  padding: 30px;
+  grid-template-columns: 50px auto;
+  grid-template-areas: 'control title title title title title'
+                       'control answerActionInfo answerActionInfo answerActionInfo answerActionInfo answerActionInfo';
+
 
   .vote-controls {
     grid-area: control;
     margin: 0;
     padding: 0;
     align-self: center;
+    justify-self: start;
   }
 
   .answer_body {
     grid-area: title;
     align-self: center;
     margin: 0;
+    justify-self: stretch;
+    margin-left: 25px;
+    justify-items: start;
+  }
+
+  .answer_action_info {
+    grid-area: answerActionInfo;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 25px;
   }
 }

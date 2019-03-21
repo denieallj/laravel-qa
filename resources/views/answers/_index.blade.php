@@ -28,7 +28,26 @@
 
                         {!! $answer->body_html !!}
 
-                        <div class="float-right">
+                    </div>
+
+                    <div class="answer_action_info">
+                        <div>
+                            @can('update', $answer)
+                                <a href="{{ route('answers.edit', [$questionSlug, $answer->id]) }}" class="btn btn-outline-info">Edit</a>
+                            @endcan
+
+                            @can('delete', $answer)
+                                <button class="btn btn-outline-danger" data-toggle="modal" data-target="#confirmModal{{ $answer->id }}">Delete</button>
+
+                                @include('layouts._confirmModal', [
+                                    'route' => route('answers.delete', [$questionSlug, $answer->id]),
+                                    'message' => "Are your sure?",
+                                    'modalID' => $answer->id
+                                ])
+                            @endcan
+                        </div>
+
+                        <div>
                             <span class="text-muted">Answered {{$answer->created_date}}</span>
 
                             <div class="media mt-2">

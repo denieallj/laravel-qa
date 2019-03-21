@@ -31,7 +31,7 @@ class Answer extends Model
 
         // laravel Eloquent Events
         // created -> an Event that will be fired after new data is saved in db
-        static::saved(function ($answer) {
+        static::created(function ($answer) {
             $answer->question->increment('answers_count');
         });
 

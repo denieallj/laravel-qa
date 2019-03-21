@@ -62,11 +62,14 @@
 
     <br>
 
+    @include('layouts._messages')
+
     @include('answers._index', [
         'answers' => $question->answers,
-        'best_answer_id' => $question->best_answer_id
+        'best_answer_id' => $question->best_answer_id,
+        'questionSlug' => $question->slug
     ])
 
-    @include('answers._create', ['questionID' => $question->id,])
+    @include('answers._create', ['questionID' => $question->id])
 </div>
 @endsection

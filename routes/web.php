@@ -24,6 +24,6 @@ Route::get('/questions/{slug}/edit', 'QuestionsController@edit')->name("question
 
 // Answer Controllers --- alternatively can use Laravel nested controller
 Route::post('/questions/{question}/answers', 'AnswersController@store')->name('answers.store');
-Route::delete('/questions/{question}/answers/{answer}', 'AnswersController@store')->name('answers.delete');
-Route::put('/questions/{question}/answers/{answer}', 'AnswersController@update')->name('answers.update');
-Route::post('/questions/{question}/answers/{answer}/edit', 'AnswersController@edit')->name('answers.edit');
+Route::delete('/questions/{slug}/answers/{answer}', 'AnswersController@destroy')->name('answers.delete');
+Route::patch('/questions/{slug}/answers/{answer}', 'AnswersController@update')->name('answers.update');
+Route::get('/questions/{slug}/answers/{answer}/edit', 'AnswersController@edit')->name('answers.edit');

@@ -42,8 +42,12 @@
                                         @endcan
 
                                         @can ('delete', $question)
-                                            <button data-toggle="modal" data-target="#confirmModal" class="btn btn-outline-danger btn-sm">Delete</button>
-                                            @include('layouts._confirmModal', ["route" => route('questions.destroy', $question->id), 'message' => "Are you sure about deleting this question?"])
+                                            <button data-toggle="modal" data-target="#confirmModal{{ $question->id }}" class="btn btn-outline-danger btn-sm">Delete</button>
+                                            @include('layouts._confirmModal', [
+                                                "route" => route('questions.destroy', $question->id),
+                                                'message' => "Are you sure about deleting this question?",
+                                                'modalID' => $question->id
+                                            ])
                                         @endcan
                                     </div>
                                 </div>
